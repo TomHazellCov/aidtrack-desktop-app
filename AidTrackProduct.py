@@ -1,5 +1,7 @@
 from tkinter import *
+from AidTrackNetworkUtils import *
 
+import AidTrackProductDetails
 
 class ProductUi(Frame):
     def __init__(self, parent):
@@ -8,7 +10,7 @@ class ProductUi(Frame):
         self.initUI()
 
     def initUI(self):
-        self.parent.geometry('750x550+200+300')
+        self.parent.geometry('750x580+200+300')
         self.parent.title('AidTrack')  # Title
         self.parent.iconbitmap('logo1icon.ico')
         self.parent.configure(background='white')
@@ -21,7 +23,12 @@ class ProductUi(Frame):
 
     def track(self):
         item = self.productNumber.get()
-        print("Track Product", item)
+        itemDetails = getItemJson(item)
+        productDetails = getProductJson(itemDetails["product_id"])
+        shipmentDetails = getShipmentJson(itemDetails["shipment_id"])
+        campaignDetails = getCampaignJson(shipmentDetails["campaign_id"])
+        AidTrackProductDetails.mainTk(Toplevel(), itemDetails, productDetails, shipmentDetails, campaignDetails)
+        print("Track Product", productDetails)
 
 def mainTk(root):
     app = ProductUi(root)
