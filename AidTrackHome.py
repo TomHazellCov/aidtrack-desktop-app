@@ -24,8 +24,8 @@ buttonStart.pack(side = TOP)
 
 Label(mGui, text="    ", background='white', font=("Helvetica", 5)).pack(side = TOP)
 
-buttonStart = Button(mGui,text='All Items', command=Start, padx=5)
-buttonStart.pack(side = TOP)
+# buttonStart = Button(mGui,text='All Items', command=Start, padx=5)
+# buttonStart.pack(side = TOP)
 
 """GUI content above"""
 
