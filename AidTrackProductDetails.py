@@ -12,7 +12,7 @@ class ProductDetailsUi(Frame):
         self.initUI()
 
     def initUI(self):
-        self.parent.geometry('750x580+200+300')
+        self.parent.geometry('750x550+200+300')
         self.parent.title('AidTrack')  # Title
         self.parent.iconbitmap('logo1icon.ico')
         self.parent.configure(background='white')

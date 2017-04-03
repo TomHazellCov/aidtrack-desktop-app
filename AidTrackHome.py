@@ -9,7 +9,7 @@ def Start():
 
 mGui = Tk()#Gui variable
 
-mGui.geometry('750x580+200+300') #Size of GUI
+mGui.geometry('750x550+200+300') #Size of GUI
 mGui.title('AidTrack')#Title
 mGui.iconbitmap('logo1icon.ico')
 mGui.configure(background='white')
