@@ -1,8 +1,11 @@
 from tkinter import *
 import os
 
+import AidTrackProduct
+
+
 def Start():
-    os.startfile('AidTrackProduct.py')
+    AidTrackProduct.mainTk(Toplevel())
 
 mGui = Tk()#Gui variable
 

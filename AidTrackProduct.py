@@ -1,22 +1,36 @@
 from tkinter import *
 
 
-def Track():
-    item = e1.get()
-    print("Track Product", item)
+class ProductUi(Frame):
+    def __init__(self, parent):
+        Frame.__init__(self, parent)
+        self.parent = parent
+        self.initUI()
 
-mGui = Tk()#Gui variable
+    def initUI(self):
+        self.parent.geometry('750x550+200+300')
+        self.parent.title('AidTrack')  # Title
+        self.parent.iconbitmap('logo1icon.ico')
+        self.parent.configure(background='white')
+        self.pack(fill=BOTH, expand=True)
 
-mGui.geometry('750x550+200+300') #Size of GUI
-mGui.title('AidTrack')#Title
-mGui.iconbitmap('logo1icon.ico')
-mGui.configure(background='white')
+        Label(self, text="Item Id:").pack(side=TOP)
+        self.productNumber = Entry(self)
+        self.productNumber.pack(side=TOP)
+        buttonTrack = Button(self, text='Track Product', command=self.track).pack(side=TOP)
 
-"""GUI content below"""
-Label(mGui, text="Product Number:").pack(side = TOP)
-e1 = Entry(mGui)
-e1.pack(side = TOP)
-buttonTrack = Button(mGui,text='Track Product', command=Track).pack(side = TOP)
-"""GUI content above"""
+    def track(self):
+        item = self.productNumber.get()
+        print("Track Product", item)
 
-mGui.mainloop()
+def mainTk(root):
+    app = ProductUi(root)
+    root.mainloop()
+
+def main():
+    root = Tk()
+    app = ProductUi(root)
+    root.mainloop()
+
+if __name__ == '__main__':
+    main()
